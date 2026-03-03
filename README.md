@@ -1,6 +1,6 @@
-# LidarPainter
+# LidarPainter without Google statistics (experimental)
 
-This is the repository that contains source code for the [LidarPainter website](https://george-attano.github.io/LidarPainter/) without Google statistics (experimental).
+This is the repository that contains source code for the [LidarPainter website](https://george-attano.github.io/LidarPainter/).
 
 Website code is borrowed from [Nerfies](https://nerfies.github.io)
 
