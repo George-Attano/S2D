@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="description"
         content="We propose a one-step diffusion model that generates consistent novel view guidance with first-tier quality and consumption for autonomous driving scene reconstruction.">
-  <meta name="keywords" content="4DGS, AD, Image Diffusion">
+  <meta name="keywords" content="3DGS, Image Diffusion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LidarPainter: One-Step Away From Any Lidar View To Novel Guidance [AAAI 2026]</title>
+  <title>S2D: Sparse to Dense Lifting for 3D Reconstruction with Minimal Inputs [CVPR 2026]</title>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -69,6 +69,9 @@
           <a class="navbar-item" href="https://george-attano.github.io/FastLGS/">
             FastLGS
           </a>
+          <a class="navbar-item" href="https://george-attano.github.io/LidarPainter/">
+            LidarPainter
+          </a>
         </div>
       </div>
     </div>
@@ -82,37 +85,44 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">LidarPainter: One-Step Away From Any Lidar View To Novel Guidance</h1>
-          <h3 class="title is-3 publication-title">[AAAI 2026]</h3>
+          <h1 class="title is-1 publication-title">S2D: Sparse to Dense Lifting for 3D Reconstruction with Minimal Inputs</h1>
+          <h3 class="title is-3 publication-title">[CVPR 2026]</h3>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Yuzhou Ji<sup>1,2</sup>,</span>
+              Yuzhou Ji<sup>1</sup>,</span>
             <span class="author-block">
-              Ke Ma<sup>1</sup>,</span>
+              Qijian Tian<sup>1</sup>,</span>
             <span class="author-block">
-              Hong Cai<sup>2*</sup>,
+              He Zhu<sup>1</sup>,
             </span>
             <span class="author-block">
-              Anchun Zhang<sup>2</sup>,
+              Xiaoqi Jiang<sup>4</sup>,
+            </span>
+            <span class="author-block">
+              Guangzhi Cao<sup>4</sup>,
             </span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=yd58y_0AAAAJ">Lizhuang Ma</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://tanxincs.github.io/">Xin Tan</a><sup>3</sup>
+              Yuan Xie<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://tanxincs.github.io/">Xin Tan</a><sup>2,3</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University,</span>
-            <span class="author-block"><sup>2</sup><a href="https://51world.com.cn/">51WORLD</a>,</span>
-            <span class="author-block"><sup>3</sup>East China Normal University</span>
+            <span class="author-block"><sup>2</sup>East China Normal University,</span>
+            <span class="author-block"><sup>3</sup>Shanghai Artificial Intelligence Laboratory,</span>
+            <span class="author-block"><sup>4</sup>Chery Automobile</span>
           </div>
-          
+          <!--
           <div class="is-size-5 publication-authors">
             <div class="author-block"><sup>*</sup>Project Leader</div>
           </div>
-
+          -->
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
@@ -247,12 +257,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Dynamic driving scene reconstruction is of great importance in fields like digital twin system and autonomous driving simulation.
-            However, unacceptable degradation occurs when the view deviates from the input trajectory, leading to corrupted background and vehicle models.
-            To improve reconstruction quality on novel trajectory, existing methods are subject to various limitations including inconsistency, deformation, and time consumption.
-            This paper proposes LidarPainter, a one-step diffusion model that recovers consistent driving views from sparse LiDAR condition and artifact-corrupted renderings in real-time, enabling high-fidelity lane shifts in driving scene reconstruction.
-            Extensive experiments show that LidarPainter outperforms state-of-the-art methods in <strong>speed</strong>, <strong>quality</strong> and <strong>resource efficiency</strong>, specifically 7 $\times$ faster than StreetCrafter with only one fifth of GPU memory required.
-            LidarPainter also supports stylized generation using text prompts such as "foggy" and "night", allowing for a diverse expansion of the existing asset library.
+            Explicit 3D representations have already become an essential medium for 3D simulation and understanding.
+            However, the most commonly used point cloud and 3D Gaussian Splatting (3DGS) each suffer from non-photorealistic rendering and significant degradation under sparse inputs.
+            In this paper, we introduce Sparse to Dense lifting (S2D), a novel pipeline that bridges the two representations and achieves high-quality 3DGS reconstruction with minimal inputs.
+            Specifically, the S2D lifting is two-fold.
+            We first present an efficient one-step diffusion model that lifts sparse point cloud for high-fidelity image artifact fixing.
+            Meanwhile, to reconstruct 3D consistent scenes, we also design a corresponding reconstruction strategy with random sample drop and weighted gradient for robust model fitting from sparse input views to dense novel views.
+            Extensive experiments show that S2D achieves the best consistency in generating novel view guidance and first-tier sparse view reconstruction quality under different input sparsity.
+            By reconstructing stable scenes with the least possible captures among existing methods, S2D enables minimal input requirements for 3DGS applications.
           </p>
         </div>
       </div>
@@ -278,15 +290,9 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{ji2025lidarpainteronestepawaylidar,
-      title={LidarPainter: One-Step Away From Any Lidar View To Novel Guidance}, 
-      author={Yuzhou Ji and Ke Ma and Hong Cai and Anchun Zhang and Lizhuang Ma and Xin Tan},
-      year={2025},
-      eprint={2507.12114},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2507.12114}, 
-}</code></pre>
+    <pre><code>
+    TBD  
+    </code></pre>
   </div>
 </section>
 
